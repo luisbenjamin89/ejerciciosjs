@@ -1,6 +1,10 @@
-const numero1 = 30
-const numero2=2
-
-const suma = numero1 + numero2
-console.log('la suma de los dos numeros es:')
-console.log(suma)
+const edad = Number(
+    prompt('Dime tu edad'),
+) /* asi es true, sin el number seria false */
+console.log(edad)
+console.log(typeof edad)
+if (edad === 20) {
+    console.log('Tienes 20 años')
+} else {
+    console.log('No tienes 20 años')
+}
