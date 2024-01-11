@@ -1,28 +1,36 @@
-const { calcularMedia, mostrarGanador } = require('./gimnastas.js');
+const { calcularSeguro, importeTotal } = require('./tienda.js')
 
-describe('calcularMedia', () => {
-  test('debería calcular la media correctamente', () => {
-    const puntuaciones = [80, 95, 123]
-    expect(calcularMedia(puntuaciones)).toBe(99.33) // Cambia este valor con la media real
-  })
-})
+describe('calculo de seguro', () => {
 
-describe('mostrarGanador', () => {
-  test('debería mostrar "Gana Francia"', () => {
-    const mockCalcularMedia = jest.fn(() => 105) // Cambia este valor con la media para que Francia gane
-    jest.spyOn(global, 'console').mockImplementation(() => {})
-
-    mostrarGanador()
-
-    expect(console.log).toHaveBeenCalledWith('Gana Francia')
-    global.console.mockRestore()
+  test('si el producto vale entre 50 y 300', () => {
+    const  valorproducto= 100
+    expect(calcularSeguro(valorproducto)).toBe(15) // Cambia este valor con la media real
   })
 
-  // Similarmente, puedes escribir pruebas para los otros casos (Gana España, Empate, No hay ganador).
+  test('Si el producto vale menos de 50', () => {
+    const valorProducto = 10
+    expect(calcularSeguro(valorProducto)).toBe(2)
+  })
+
+  test('Si el producto vale más de 300', () => {
+    const valorProducto = 1000
+    expect(calcularSeguro(valorProducto)).toBe(200)
+  })
+
 })
 
-// Asegúrate de cambiar './tu-archivo-con-el-codigo' con la ruta correcta a tu archivo con el código.
+describe('Calculo de Valores finales', () => {
+  test('Si el producto vale entre 50 y 300', () => {
+    const valorProducto = 100
+    expect(importeTotal(valorProducto)).toBe(115)
+  })
+  test('Si el producto vale menos de 50', () => {
+    const valorProducto = 10
+    expect(importeTotal(valorProducto)).toBe(12)
+  })
 
-Reaccionar
-
-Responder
+  test('Si el producto vale más de 300', () => {
+    const valorProducto = 1000
+    expect(importeTotal(valorProducto)).toBe(1200)
+  })
+})
