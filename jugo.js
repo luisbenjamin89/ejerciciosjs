@@ -12,4 +12,4 @@ const hacerZUmo = (numManzana, numPeras) => {
 
 
 
-console.log(`haz utilizado ${hacerZUmo(3, 4)}`)
+console.log(`haz utilizado ${hacerZUmo(3, 4)}`)la es
